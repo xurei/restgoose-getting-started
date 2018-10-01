@@ -1,0 +1,19 @@
+{
+  "name": "restgoose-getting-started",
+  "version": "0.0.4",
+  "description": "Getting started example of Restgoose",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/xurei/restgoose-getting-started.git"
+  },
+  "author": "Olivier Bourdoux",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/xurei/restgoose-getting-started/issues"
+  },
+  "homepage": "https://xurei.github.io/restgoose/getting-started.html"
+}
