@@ -6,7 +6,7 @@ import { Restgoose } from '@xureilab/restgoose';
 import * as mongoose from 'mongoose';
 
 const port = process.env.NODE_PORT || 3000;
-const mongoUri = process.env.MONGO_URI || 'mongodb://localhost/restgoose-getting-started';
+const mongoUri = (process.env.MONGO_URI || 'mongodb://localhost/') + 'restgoose-getting-started';
 const mongoPassword = process.env.MONGO_PASSWORD || '';
 
 // Create the minimal express with CORS and bodyParser.json
@@ -21,7 +21,7 @@ app.use(cors({
 }));
 
 openDatabase();
-Restgoose.initialize(app);
+app.use(Restgoose.initialize());
 let server = require('http').createServer(app);
 server = server.listen(port, function () {
     console.log(`Example app listening on port ${port}!`)
