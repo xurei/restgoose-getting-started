@@ -1,7 +1,7 @@
 import { Request } from 'express';
 import { Typegoose } from 'typegoose';
 
-export function keepFields<T extends Typegoose>(...fieldNames: string[]) {
+export function keepfields<T extends Typegoose>(...fieldNames: string[]) {
     return async function(req: Request, entity: T) {
         const out = {};
         fieldNames.forEach(name => {

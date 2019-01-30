@@ -22,7 +22,7 @@
     "@types/body-parser": "^1.17.0",
     "@types/cors": "^2.8.4",
     "@types/express": "^4.16.0",
-    "@xureilab/restgoose": "0.0.14",
+    "@xureilab/restgoose": "0.0.15",
     "body-parser": "^1.18.3",
     "cors": "^2.8.4",
     "express": "^4.16.3",

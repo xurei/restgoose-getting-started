@@ -1,18 +1,27 @@
 import { Typegoose, prop, arrayProp, Ref } from 'typegoose';
 import { all, and, asFilter, create, one, remove, rest, RestError, update } from '@xureilab/restgoose';
 import { Movie } from './movie';
-import { keepFields } from './keepFields';
+import { keepfields } from './keepfields';
+import { addPagination } from './addpagination';
+import { verifyToken } from './verifytoken';
 
 @rest({
     route: '/actors',
     methods: [
         all({     //GET    /actors
-            preSend: keepFields('_id', 'title'),
+            preFetch: addPagination,
+            preSend: keepfields('_id', 'title'),
         }),
         one(),    //GET    /actors/:id
-        create(), //POST   /actors
-        update(), //PATCH  /actors/:id
-        remove(), //DElETE /actors/:id
+        create({  //POST   /actors
+            preFetch: verifyToken
+        }),
+        update({  //PATCH  /actors/:id
+            preFetch: verifyToken
+        }),
+        remove({  //DElETE /actors/:id
+            preFetch: verifyToken
+        }),
     ],
 })
 export class Actor extends Typegoose {

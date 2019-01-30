@@ -2,15 +2,15 @@ import { Typegoose, prop, arrayProp, Ref } from 'typegoose';
 import { Actor } from './actor';
 import { all, and, asFilter, create, one, remove, rest, RestError, update } from '@xureilab/restgoose';
 import { verifyToken } from './verifytoken';
-import { fetchPaginated } from './fetchpaginated';
-import { keepFields } from './keepFields';
+import { keepfields } from './keepfields';
+import { addPagination } from './addpagination';
 
 @rest({
     route: '/movies',
     methods: [
         all({     //GET    /movies
-            fetch: fetchPaginated,
-            preSend: keepFields('_id', 'name'),
+            preFetch: addPagination,
+            preSend: keepfields('_id', 'name'),
         }),
         one(),    //GET    /movies/:id
         create({  //POST   /movies
